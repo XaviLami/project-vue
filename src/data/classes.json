@@ -1,0 +1,40 @@
+{
+  "name": "Cours",
+  "classes": [
+    {
+      "classe": "Anglais",
+      "prof": "Anthony DUVAL",
+      "prix": 123,
+      "health": "présent",
+      "photo": "navas.jpg"
+    },
+    {
+      "classe": "JV",
+      "prof": "Peloman JOW",
+      "prix": 21,
+      "health": "absent",
+      "photo": "navas.jpg"
+    },
+    {
+      "classe": "Arabe",
+      "prof": "A. DI Maria",
+      "prix": 100,
+      "health": "absent",
+      "photo": "navas.jpg"
+    },
+    {
+      "classe": "DW",
+      "prof": "Tony Star",
+      "prix": 10,
+      "health": "présent",
+      "photo": "navas.jpg"
+    },
+    {
+      "classe": "Dessin",
+      "prof": "Anakin Skywalker",
+      "prix": 2,
+      "health": "absent",
+      "photo": "navas.jpg"
+    }
+  ]
+}

@@ -1,28 +1,59 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+  <nav-bar
+          @change-component="changeSelectedComponent"
+  >
+  </nav-bar>
+
+  <keep-alive include="player-view">
+    <component
+            :is="selectedComponent"
+            v-bind="currentProps"
+            @child-event="selectionUpdate"
+    >
+    </component>
+  </keep-alive>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  import ClasseView from './components/ClasseView.vue'
+  import SelectionList from './components/SelectionList.vue'
+  import NavBar from './components/navigation/NavBar.vue'
+
+  export default {
+    name: 'App',
+    components: {
+      ClasseView,
+      SelectionList,
+      NavBar
+    },
+    data() {
+      return {
+        selectedComponent: 'classe-view',
+        classeSelection: []
+      }
+    },
+    computed: {
+      currentProps() {
+        if(this.selectedComponent == "selection-list"){
+          return { selection: this.classeSelection }
+        }
+        return false
+      },
+    },
+    methods: {
+      changeSelectedComponent(value) {
+        this.selectedComponent = value
+      },
+      selectionUpdate(value) {
+        this.classeSelection.push(value)
+      }
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
