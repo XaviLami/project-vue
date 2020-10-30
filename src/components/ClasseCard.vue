@@ -4,8 +4,8 @@
             :class="healthStyle"
     >
         <div>
-            <h1 class="text-lg font-bold">{{ classeName }}</h1>
-            <p> {{ classePrix }} </p>
+            <h1 class="text-lg font-bold">{{ classesName }}</h1>
+            <p> {{ classesPrix }} </p>
         </div>
         <base-button
                 text="Sélectionner"
@@ -24,7 +24,8 @@
                 return this.classe.name;
             },
             classesPrix(){
-                return this.classe.prix.toUpperCase()
+                // toUpperCase ne s'applique que a des string, ici c'est un number
+                return this.classe.prix
             },
             isInjured() {
                 if(this.classe.health == "absent"){
